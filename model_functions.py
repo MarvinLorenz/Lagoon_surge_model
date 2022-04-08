@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This is the numerical code of the box model used in Lorenz et al. (submitted to ERL).
+This is the numerical code of the box model used in Lorenz et al. submitted to GRL
 It includes functions that are used to prepare the input as well as the numerical integration itself.
 
 authors: Marvin Lorenz (marvin.lorenz@io-warnemuende.de)
