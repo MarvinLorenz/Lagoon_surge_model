@@ -74,7 +74,7 @@ def model(A,H,W,L,k,dt,T_max,eta_0,SLR=0.0,integration='Euler',k_method='const',
     eta_0 : prescribed surge on time step of the model; this can be multiple time series, one for each inlet
     SLR   : additional sea level rise in m
     integration: which numerical scheme is used for integration, either 'Euler' or 'RK' (Runge Kutta 4th order)
-    friction_method : either constant or dynmaic
+    k_method : either constant or dynmaic
         constant: provided k is used
     z_0   : friction length, only used if k_method == 'dynamic' with law of the wall
         k will be overwritten
@@ -122,7 +122,7 @@ def model(A,H,W,L,k,dt,T_max,eta_0,SLR=0.0,integration='Euler',k_method='const',
         if len(Q_r) < len(eta_0[:-1]):
             print('time series of Q_r is too short')
 
-    print(fill)
+    #print(fill)
     eta_result = np.full((N_max+2,),fill)
 
     # Integration of the simulation
@@ -255,6 +255,7 @@ def eta_gauss(amp,width,T_0,T_max,N_max):
     
     amp        : surge height
     width      : shape parameter of the Gaussian
+    T_0        : offset time
     T_max      : length of the box model simulation in seconds
     N_max      : number of time steps 
     """
